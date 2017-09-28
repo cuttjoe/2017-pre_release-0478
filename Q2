@@ -1,0 +1,57 @@
+```python
+
+available=0
+time=0
+cost=0
+totcost=0
+tottime=0
+endtime=1000
+endd=False
+tottimelist=[]
+totcostlist=[]
+endtimelist=[]
+for i in range (4):
+    tottimelist.append(0)
+    totcostlist.append(0)
+    endtimelist.append(900)
+while endd!=True:
+    starttime=int(input("enter start time in  24h hhmm format "))
+    while starttime<1000 or starttime>=1500:
+        print("outside of hours")
+        starttime=int(input("enter starttime "))
+    for j in range(len(endtimelist)):
+        if endtimelist[j]<starttime:
+            boatnr=j
+            available=available+1
+    print("number of boats available",available)  
+    if available==0:
+        print("earliest time boats available " ,min(endtimelist))
+        print(tottimelist,totcostlist,endtimelist)
+    available=0
+    op=int(input("Choose 1.Rent for one hour 2. Rent for 30 minutes next "))
+    while op != 1 and op != 2:
+        print ("error option")
+        op=input("please enter 1 or 2 as option")
+    if op==1:
+        tottimelist[boatnr]=tottimelist[boatnr]+1
+        totcostlist[boatnr]=totcostlist[boatnr]+20
+        endtimelist[boatnr]=starttime+100
+        endtime=starttime+100
+    if endtime>1500:
+      print("booking time exeeded")
+      endd=True
+    if op==2:
+        tottimelist[boatnr]=tottimelist[boatnr]+.5
+        totcostlist[boatnr]=totcostlist[boatnr]+12
+        endtime=starttime+30
+        if endtime%100>0:
+            endtimelist[boatnr]=starttime-30+100
+        if endtime>1500:
+            print("booking time exeeded")
+            endd=True
+        else:
+            endtimelist[boatnr]=starttime+30
+    if endtime>1500:
+        print("booking time exeeded")
+        endd=True
+```
