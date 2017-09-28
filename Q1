@@ -1,0 +1,43 @@
+```
+time=0
+cost=0
+totcost=0
+tottime=0
+endtime=1000
+endd=False
+while endd!=True:
+  starttime=int(input("enter start time in  24h hhmm format "))
+  while starttime<1000 or starttime>=1500:
+    print("outside of hours")
+    starttime=int(input("enter starttime "))
+  if starttime<endtime:
+    starttime=endtime
+    print("start time ajusted")
+
+  op=int(input("Choose 1.Rent for one hour 2. Rent for 30 minutes next "))
+  print("next timeslot",starttime)
+  while op != 1 and op != 2:
+    print ("error option")
+    op=input("please enter 1 or 2 as option")
+  if op==1:
+    tottime=tottime+1
+    totcost=totcost+20
+    endtime=starttime+100
+    if endtime>1500:
+      print("booking time exeeded")
+      endd=True
+  if op==2:
+    tottime=tottime+.5
+    totcost=totcost+10
+    if endtime%100>0:
+      endtime=starttime-30+100
+      if endtime>1500:
+        print("booking time exeeded")
+        endd=True
+    else:
+      endtime=starttime+30
+      if endtime>1500:
+        print("booking time exeeded")
+        endd=True
+  print("total time is",tottime,"totalcost is","$",totcost,"endtime is ",endtime)
+  ```
