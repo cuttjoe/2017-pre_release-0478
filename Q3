@@ -1,0 +1,12 @@
+```python
+unuunused=0
+#assume this was created in Q2
+tottimelist=[6.5,1,3,4,0,7,0]
+totcostlist=[200,20,64,60,0,140,0]
+endtimelist=[1300,1400,1200,1330,0,1500,0]
+for i in tottimelist:
+    if i==0:
+        unused=unused+1
+usedmax=tottimelist.index(max(tottimelist))
+print(" total income ", sum(totcostlist)," total hours done ", sum(tottimelist)," unused boats ",unused," most used boat",usedmax )
+```
